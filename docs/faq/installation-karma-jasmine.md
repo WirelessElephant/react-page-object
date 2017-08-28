@@ -119,22 +119,24 @@
             {
               test: /\.(js|jsx)$/,
               exclude: /node_modules/,
-              loader: 'babel'
+              loader: 'babel-loader'
             },
             {
               test: /\.css$/,
-              loader: 'style!css'
+              loader: 'style-loader!css'
             },
             {
               test: /\.json$/,
-              loader: 'json'
+              loader: 'json-loader'
             }
           ]
         },
         // relative path starts out at the src folder when importing modules
-        resolve: {
-          root: path.resolve('./src')
-        }
+        // 08/28/2017: create-react-app uses Webpack v2; if using v1,
+        // uncomment this below.
+        // resolve: {
+        //   root: path.resolve('./src')
+        // }
       },
 
       webpackMiddleware: {
